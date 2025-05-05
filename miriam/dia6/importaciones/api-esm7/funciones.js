@@ -1,4 +1,4 @@
-const division = ( a, b ) => a + b
+const division = ( a, b ) => a / b
 export const suma = ( a, b ) => a + b
 export const resta = ( a , b ) => a - b
 export const multiplicacion = ( a , b ) => a * b
