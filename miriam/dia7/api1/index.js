@@ -2,7 +2,8 @@ console.clear()
 console.log('Iniciando Proyecto api1')
 
 const express = require ('express')
-const {getAlumnos, getAlumnosById, getAlumnosNombre, getAlumnosAprobado,getAlumnosByNombreAndAprobado,postAlumnos, postAlumnosById,postAlumnosNombre,postAlumnosAprobado, postAlumnosByNombreAndAprobado, putAlumnos,putAlumnosById, patchAlumnos, deleteAlumnos, putAlumnosNombre, putAlumnosAprobado} = require('./controller')
+const {getAlumnos, getAlumnosById, getAlumnosNombre, getAlumnosAprobado,getAlumnosByNombreAndAprobado,postAlumnos, postAlumnosById,postAlumnosNombre,postAlumnosAprobado, postAlumnosByNombreAndAprobado, putAlumnos,putAlumnosById, patchAlumnos, deleteAlumnos, putAlumnosNombre, putAlumnosAprobado, putAlumnosByNombreAndAprobado, patchAlumnosNombre, patchAlumnosAprobado, patchAlumnosByNombreAndAprobado, patchAlumnosById, deleteAlumnosById, deleteAlumnosNombres, deleteAlumnosAprobado, deleteAlumnosByNombreAndAprobado} = require('./controller')
+
 const { middleware404, middleware500 } = require('./middlewares')
 
 const app = express()
@@ -15,9 +16,9 @@ const app = express()
     //Metodos
     app.get('/alumnos', getAlumnos)
     //Buscamos mediante id
-    app.get('/alumnos/id/:_id', getAlumnosById)
+    app.get('/alumnos/_id/:_id', getAlumnosById)
     //Buscamos mediante nombre
-    app.get('/alumnos/nombre/:_nombre', getAlumnosNombre)
+    app.get('/alumnos/_nombre/:_nombre', getAlumnosNombre)
     //Buscamos mediante aprobado
     app.get('/alumnos/aprobado/:aprobado',getAlumnosAprobado )
     //Buscamos mediante nombre y aprobado
@@ -46,14 +47,23 @@ const app = express()
     //Buscamos por aprobado
     app.put('/alumnos/_aprobado/:_aprobado', putAlumnosAprobado)
     //Buscamos por nombre y aprobado 
+    app.put('/alumnos/multiples/:_nombre/:_aprobado', putAlumnosByNombreAndAprobado)
     
 
 
+    app.patch('/alumnos', patchAlumnos)
+    app.patch('/alumnos/_id/:_id', patchAlumnosById)
+    app.patch('/alumnos/_nombre/:_nombre', patchAlumnosNombre)
+    app.patch('/alumnos/_aprobado/:_aprobado', patchAlumnosAprobado)
+    app.patch('/alumnos/multiples/:_nombre/:_aprobado', patchAlumnosByNombreAndAprobado)
 
 
-    app.patch('/alumnos/_nombre/:_nombre', patchAlumnos)
-    app.delete('/alumnos/:_id', deleteAlumnos)
 
+    app.delete('/alumnos', deleteAlumnos)
+    app.delete('/alumnos/_id/:_id', deleteAlumnosById)
+    app.delete('/alumnos/_nombre/:_nombre', deleteAlumnosNombres)
+    app.delete('/alumnos/_aprobado/:_aprobado', deleteAlumnosAprobado)
+    app.delete('/alumnos/multiples/:_nombre/:_aprobado', deleteAlumnosByNombreAndAprobado)
 
 
     app.use(middleware404)

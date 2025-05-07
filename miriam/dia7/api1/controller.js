@@ -98,22 +98,48 @@ const putAlumnosByNombreAndAprobado = (req, res, next) => {
 
 
 
-
-
 //METODO PATCH
 const patchAlumnos = (req, res, next) => {
-    const { _id, ...datos} = req.body
-    res.json(datos)
+    res.json('Bucando alumnos')
 }
-
-
+const patchAlumnosById = (req, res, next) => {
+    const {_id} = req.params
+    res.json(`Buscando id ${_id}`)
+}
+const patchAlumnosNombre = (req, res, next) => {
+    const {_nombre} = req.params
+    res.json(`Buscando Nombre ${_nombre}`)
+}
+const patchAlumnosAprobado = (req, res, next) => {
+    const {_aprobado} = req.parms
+    res.json(`Buscando aprobados ${_aprobado}`)
+}
+const patchAlumnosByNombreAndAprobado = (req, res, next) => {
+    const {_nombre, _aprobado} = req.parms
+    res.json(`Buscando Nombre ${_nombre} y aprobados ${_aprobado}`)
+}
 
 //METODO DELETE
 const deleteAlumnos = (req, res, next) => {
+    res.json(`Buscamos alumnos`)
+}
+const deleteAlumnosById = (req, res, next) => {
     const {_id} = req.params
-    res.json(`Haciendo delete en /alumnos con el id ${_id}`)
+    res.json(`Buscando el id ${_id} `)
 }
 
+const deleteAlumnosNombres = (req, res, next) => {
+    const {_nombre} = req.params
+    res.json(`Buscar nombre de alumnos ${_nombre}`)
+}
+const deleteAlumnosAprobado = (req, res, next) => {
+    const {_aprobado} = req.params
+    res.json(`Buscando alumnos aprobados ${_aprobado}`)
+}
+const deleteAlumnosByNombreAndAprobado = (req, res, next) => {
+    const {_nombre, _aprobado} = req.params
+    res.json(`Buscando nombres ${_nombre} y aprobados ${_aprobado} `)
+}
 
 module.exports = {
     getAlumnos,
@@ -130,7 +156,15 @@ module.exports = {
     putAlumnosById,
     putAlumnosNombre,
     putAlumnosAprobado,
+    putAlumnosByNombreAndAprobado,
     patchAlumnos,
+    patchAlumnosById,
+    patchAlumnosNombre,
+    patchAlumnosAprobado,
+    patchAlumnosByNombreAndAprobado,
     deleteAlumnos,
-    
+    deleteAlumnosById,
+    deleteAlumnosNombres,
+    deleteAlumnosAprobado,
+    deleteAlumnosByNombreAndAprobado
 }
