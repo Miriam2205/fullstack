@@ -1,5 +1,4 @@
 
-
  const getAlumnos = (req, res, next) => {
     res.json('Haciendon api get en alumnos')
  }
