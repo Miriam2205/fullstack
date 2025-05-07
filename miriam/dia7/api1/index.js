@@ -2,7 +2,7 @@ console.clear()
 console.log('Iniciando Proyecto api1')
 
 const express = require ('express')
-const {getAlumnos , postAlumnos, putAlumnos, patchAlumnos, deleteAlumnos, getAlumnosById, getAlumnosByNombreAndAprobado} = require('./controller')
+const {getAlumnos ,getAlumnosNombre, getAlumnosAprobado, postAlumnos, putAlumnos, patchAlumnos, deleteAlumnos, getAlumnosById, getAlumnosByNombreAndAprobado} = require('./controller')
 
 const app = express()
 
@@ -16,9 +16,11 @@ const app = express()
     //Buscamos mediante id
     app.get('/alumnos/_id/:_id', getAlumnosById)
     //Buscamos mediante nombre
+    app.get('/alumnos/nombre/:_nombre', getAlumnosNombre)
     //Buscamos mediante aprobado
-    //Buscamos mediante nombre y aprobado
+    app.get('/alumnos/aprobado/:aprobado',getAlumnosAprobado )
 
+    //Buscamos mediante nombre y aprobado
     app.get(`/alumnos/multiples/:nombre/:aprobado`, getAlumnosByNombreAndAprobado)
 
     app.post('/alumnos', postAlumnos)
