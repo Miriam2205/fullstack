@@ -17,6 +17,7 @@ const getAlumnosById = (req, res, next) => {
         next(Error)
     }
     
+
 }
 
     //Buscar mediante nombre 
@@ -41,104 +42,204 @@ const getAlumnosAprobado = (req, res, next ) => {
 
     //Buscar valor múltiple:  nombre y aprobado
 const getAlumnosByNombreAndAprobado = (req, res, next) => {
-    const { _nombre , _aprobado } = req.params
-    res.json(`Buscando multiple ${_nombre} y ${_aprobado}`)
+    try {
+        const { _nombre , _aprobado } = req.params
+        res.json(`Buscando multiple ${_nombre} y ${_aprobado}`)
+    } catch (error) {
+        next(Error)
+    }
+    
 }
 
 //METODO POST
 const postAlumnos = (req, res, next ) => {
-    res.json(`Añadiendo post en alumnos`)
+    try {
+        res.json(`Añadiendo post en alumnos`)
+    } catch (error) {
+        next(Error)
+    }
 }
 //Buscar por id
 const postAlumnosById = (req, res, next) => {
-    const {_id} = req.params
-    res.json(`Añadiendo post en alumnos ${_id}`)
+    try {
+        const {_id} = req.params
+        res.json(`Añadiendo post en alumnos ${_id}`)
+    } catch (error) {
+        next(Error)
+    }
+   
 }
 //Buscar por nombre 
 const postAlumnosNombre = (req, res, next) => {
-    const {_nombre} = req.params
-    res.json(`Buscando nombre alumno ${_nombre}`)
+    try {
+        const {_nombre} = req.params
+        res.json(`Buscando nombre alumno ${_nombre}`)
+    } catch (error) {
+        next(Error)
+    }
+   
 }
 //Buscar por aprobado 
 const postAlumnosAprobado = (req, res, next) => {
-    const{_aprobado} = req.params
-    res.json(`Buscando aprobados ${_aprobado}`)
+    try {
+        const{_aprobado} = req.params
+        res.json(`Buscando aprobados ${_aprobado}`)
+    } catch (error) {
+        next(Error)
+    }
+    
 }
 //Buscamos por nombre y aprobado
 const postAlumnosByNombreAndAprobado = (req, res, next) => {
-    const {_nombre, _aprobado} = req.params
-    res.json(`Buscando nombres${_nombre} y aprobados${_aprobado} `)
+    try {
+        const {_nombre, _aprobado} = req.params
+        res.json(`Buscando nombres${_nombre} y aprobados${_aprobado} `)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 
 
 //METODO POST
 //Buscar alumnos
 const putAlumnos = (req, res, next) => {
-    res.json(`Buscando alumnos `)
+    try {
+        res.json(`Buscando alumnos `)
+    } catch (error) {
+        next(Error)
+    }
 }
 //Buscamos por id
 const putAlumnosById = (req, res, next) => {
-    const {_id} = req.params
-    res.json(`Buscando alumnos por Id ${_id}`)
+    try {
+        const {_id} = req.params
+        res.json(`Buscando alumnos por Id ${_id}`)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 //Buscamos por nombre
 const putAlumnosNombre = (req, res, next) => {
-    const {_nombre} = req.params
-    res.json(`Buscando nombre${_nombre}`)
+    try {
+        const {_nombre} = req.params
+        res.json(`Buscando nombre${_nombre}`)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 //Buscamos por aprobado
 const putAlumnosAprobado = (req, res, next) => {
-    const {_aprobado} = req.params
-    res.json (`Buscando aprobados${_aprobado}`)
+    try {
+        const {_aprobado} = req.params
+        res.json (`Buscando aprobados${_aprobado}`)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 //Buscamos por Nombre y aprobado
 const putAlumnosByNombreAndAprobado = (req, res, next) => {
-    res.json(`Buscando nombres y aprobados `)
+    try {
+        const{_nombre, _aprobado} = req.params
+        res.json(`Buscando nombres ${_nombre} y aprobados ${_aprobado} `)
+    } catch (error) {
+        next(Error)
+    }
 }
-
 
 
 //METODO PATCH
 const patchAlumnos = (req, res, next) => {
-    res.json('Bucando alumnos')
+    try {
+        res.json('Bucando alumnos')
+    } catch (error) {
+        next(Error)
+    }
 }
 const patchAlumnosById = (req, res, next) => {
-    const {_id} = req.params
-    res.json(`Buscando id ${_id}`)
+    try {
+        const {_id} = req.params
+        res.json(`Buscando id ${_id}`)
+    } catch (error) {
+        next(Error)
+    }
+    
 }
 const patchAlumnosNombre = (req, res, next) => {
-    const {_nombre} = req.params
-    res.json(`Buscando Nombre ${_nombre}`)
+    try {
+        const {_nombre} = req.params
+        res.json(`Buscando Nombre ${_nombre}`)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 const patchAlumnosAprobado = (req, res, next) => {
-    const {_aprobado} = req.parms
-    res.json(`Buscando aprobados ${_aprobado}`)
+    try {
+        const{_aprobado} = req.params
+        res.json(`Buscando alumnos aprobados ${_aprobado}`)
+    } catch (error) {
+        next(Error)
+    }
 }
+
 const patchAlumnosByNombreAndAprobado = (req, res, next) => {
-    const {_nombre, _aprobado} = req.parms
-    res.json(`Buscando Nombre ${_nombre} y aprobados ${_aprobado}`)
+   try {
+        const {_nombre, _aprobado} = req.params
+        res.json(`Buscando nombre ${_nombre} y aprobados ${_aprobado}`)
+   } catch (error) {
+        next(Error)
+   }
+
 }
 
 //METODO DELETE
 const deleteAlumnos = (req, res, next) => {
-    res.json(`Buscamos alumnos`)
+    try {
+        res.json(`Buscamos alumnos`)
+    } catch (error) {
+        next(Error)
+    }
 }
 const deleteAlumnosById = (req, res, next) => {
-    const {_id} = req.params
-    res.json(`Buscando el id ${_id} `)
+    try {
+        const {_id} = req.params
+        res.json(`Buscando el id ${_id} `)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 
 const deleteAlumnosNombres = (req, res, next) => {
-    const {_nombre} = req.params
-    res.json(`Buscar nombre de alumnos ${_nombre}`)
+    try {
+        const {_nombre} = req.params
+        res.json(`Buscar nombre de alumnos ${_nombre}`)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 const deleteAlumnosAprobado = (req, res, next) => {
-    const {_aprobado} = req.params
-    res.json(`Buscando alumnos aprobados ${_aprobado}`)
+    try {
+        const {_aprobado} = req.params
+        res.json(`Buscando alumnos aprobados ${_aprobado}`)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 const deleteAlumnosByNombreAndAprobado = (req, res, next) => {
-    const {_nombre, _aprobado} = req.params
-    res.json(`Buscando nombres ${_nombre} y aprobados ${_aprobado} `)
+    try {
+        const {_nombre, _aprobado} = req.params
+        res.json(`Buscando nombres ${_nombre} y aprobados ${_aprobado} `)
+    } catch (error) {
+        next(Error)
+    }
+
 }
 
 module.exports = {

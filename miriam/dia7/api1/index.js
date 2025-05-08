@@ -16,13 +16,13 @@ const app = express()
     //Metodos
     app.get('/alumnos', getAlumnos)
     //Buscamos mediante id
-    app.get('/alumnos/_id/:_id', getAlumnosById)
+    app.get('/alumnos/id/:_id', getAlumnosById)
     //Buscamos mediante nombre
-    app.get('/alumnos/_nombre/:_nombre', getAlumnosNombre)
+    app.get('/alumnos/nombre/:_nombre', getAlumnosNombre)
     //Buscamos mediante aprobado
-    app.get('/alumnos/aprobado/:aprobado',getAlumnosAprobado )
+    app.get('/alumnos/aprobado/:_aprobado',getAlumnosAprobado )
     //Buscamos mediante nombre y aprobado
-    app.get(`/alumnos/multiples/:nombre/:aprobado`, getAlumnosByNombreAndAprobado)
+    app.get(`/alumnos/multiples/:_nombre/:_aprobado`, getAlumnosByNombreAndAprobado)
 
 
 
@@ -41,28 +41,28 @@ const app = express()
 
     app.put('/alumnos', putAlumnos)
     //Buscamos por id
-    app.put('/alumnos/_id/:_id', putAlumnosById)
+    app.put('/alumnos/id/:_id', putAlumnosById)
     //Buscamos por nombre
-    app.put('/alumnos/_nombre/:_nombre', putAlumnosNombre)
+    app.put('/alumnos/nombre/:_nombre', putAlumnosNombre)
     //Buscamos por aprobado
-    app.put('/alumnos/_aprobado/:_aprobado', putAlumnosAprobado)
+    app.put('/alumnos/aprobado/:_aprobado', putAlumnosAprobado)
     //Buscamos por nombre y aprobado 
     app.put('/alumnos/multiples/:_nombre/:_aprobado', putAlumnosByNombreAndAprobado)
     
 
 
     app.patch('/alumnos', patchAlumnos)
-    app.patch('/alumnos/_id/:_id', patchAlumnosById)
-    app.patch('/alumnos/_nombre/:_nombre', patchAlumnosNombre)
-    app.patch('/alumnos/_aprobado/:_aprobado', patchAlumnosAprobado)
+    app.patch('/alumnos/id/:_id', patchAlumnosById)
+    app.patch('/alumnos/nombre/:_nombre', patchAlumnosNombre)
+    app.patch('/alumnos/aprobado/:_aprobado', patchAlumnosAprobado)
     app.patch('/alumnos/multiples/:_nombre/:_aprobado', patchAlumnosByNombreAndAprobado)
 
 
 
     app.delete('/alumnos', deleteAlumnos)
-    app.delete('/alumnos/_id/:_id', deleteAlumnosById)
-    app.delete('/alumnos/_nombre/:_nombre', deleteAlumnosNombres)
-    app.delete('/alumnos/_aprobado/:_aprobado', deleteAlumnosAprobado)
+    app.delete('/alumnos/id/:_id', deleteAlumnosById)
+    app.delete('/alumnos/nombre/:_nombre', deleteAlumnosNombres)
+    app.delete('/alumnos/aprobado/:_aprobado', deleteAlumnosAprobado)
     app.delete('/alumnos/multiples/:_nombre/:_aprobado', deleteAlumnosByNombreAndAprobado)
 
 
