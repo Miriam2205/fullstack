@@ -8,7 +8,10 @@ const middleware404 = (req, res, next )=> {
 const middleware500 = (error, req, res, next) => {
     let status = error.status || 500
     let message = error.message || `Hay un error interno en la API`
-    res.json({status, message})
+    let data = null
+
+
+    res.status(500).json({status, message, data})
 }
 
 module.exports = {

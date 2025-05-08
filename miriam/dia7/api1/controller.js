@@ -2,7 +2,7 @@
 //METODO GET
 const getAlumnos = ( req, res, next ) => {
     try {
-        res.json('Haciendo get en /alumnos')
+        res.status(200).json({message: `Buscando alumnos`, data: []})
     } catch (error) {
         next(Error)
     }
@@ -12,7 +12,7 @@ const getAlumnos = ( req, res, next ) => {
 const getAlumnosById = (req, res, next) => {
     try {
         const { _id } = req.params
-        res.json(`Buscando mediante el ID ${_id}`)
+        res.status(200).json( {message: `Buscando by id${_id}`, data: []} )
     } catch (error) {
         next(Error)
     }
@@ -23,7 +23,7 @@ const getAlumnosById = (req, res, next) => {
 const getAlumnosNombre = (req, res, next) => {
     try {
         const {_nombre} = req.params
-        res.json(`Buscando mediante nombre ${_nombre}`)
+        res.status(200).json({message: `Buscando by nombre ${_nombre}`, data: []})
     } catch (error) {
         next(Error)
     }
@@ -33,7 +33,7 @@ const getAlumnosNombre = (req, res, next) => {
 const getAlumnosAprobado = (req, res, next ) => {
     try {
         const {_aprobado} = req.params
-        res.json(`Buscando aprobados ${_aprobado}`)
+        res.status(200).json ({message: `Buscando aprobados ${_aprobado}`, data: []})
     } catch (error) {
         next(Error)
     }
@@ -43,7 +43,7 @@ const getAlumnosAprobado = (req, res, next ) => {
 const getAlumnosByNombreAndAprobado = (req, res, next) => {
     try {
         const { _nombre , _aprobado } = req.params
-        res.json(`Buscando multiple ${_nombre} y ${_aprobado}`)
+        res.status(200).json({message: `Buscando nombre ${_nombre} y aprobado${_aprobado}`, data: []})
     } catch (error) {
         next(Error)
     }
@@ -53,7 +53,7 @@ const getAlumnosByNombreAndAprobado = (req, res, next) => {
 //METODO POST
 const postAlumnos = (req, res, next ) => {
     try {
-        res.json(`Añadiendo post en alumnos`)
+        res.status(201).json({message: `Buscando alumnos `})
     } catch (error) {
         next(Error)
     }
@@ -62,7 +62,7 @@ const postAlumnos = (req, res, next ) => {
 const postAlumnosById = (req, res, next) => {
     try {
         const {_id} = req.params
-        res.json(`Añadiendo post en alumnos ${_id}`)
+        res.status(200).json({message: `Buscando alumnos by ${_id}Id`, data: []})
     } catch (error) {
         next(Error)
     }
@@ -72,7 +72,7 @@ const postAlumnosById = (req, res, next) => {
 const postAlumnosNombre = (req, res, next) => {
     try {
         const {_nombre} = req.params
-        res.json(`Buscando nombre alumno ${_nombre}`)
+        res.status(200).json({message: `Buscando alumnos by nombre ${_nombre}`})
     } catch (error) {
         next(Error)
     }
@@ -82,7 +82,7 @@ const postAlumnosNombre = (req, res, next) => {
 const postAlumnosAprobado = (req, res, next) => {
     try {
         const{_aprobado} = req.params
-        res.json(`Buscando aprobados ${_aprobado}`)
+        res.status(200).json({message: `Buscando `})
     } catch (error) {
         next(Error)
     }
@@ -101,7 +101,6 @@ const postAlumnosByNombreAndAprobado = (req, res, next) => {
 
 
 //METODO POST
-//Buscar alumnos
 const putAlumnos = (req, res, next) => {
     try {
         res.json(`Buscando alumnos `)

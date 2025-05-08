@@ -1,10 +1,10 @@
 {
-  "name": "api3",
+  "name": "dia8",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index",
-    "build": "node index"
+    "build":"node index"
   },
   "keywords": [],
   "author": "",
