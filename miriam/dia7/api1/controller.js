@@ -1,6 +1,6 @@
 
 //METODO GET
-const getAlumnos = ( error, req, res, next ) => {
+const getAlumnos = ( req, res, next ) => {
     try {
         res.json('Haciendo get en /alumnos')
     } catch (error) {
@@ -17,7 +17,6 @@ const getAlumnosById = (req, res, next) => {
         next(Error)
     }
     
-
 }
 
     //Buscar mediante nombre 
