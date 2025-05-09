@@ -1,47 +1,25 @@
-const getAlumnos = (req, res, next) => {
-    try {
-        res.json('Haciendo api en/alumnos')
-    } catch (error) {
-        next(error)
-    }
-}
 
-const postAlumnos = (req, res, next) => {
-    try {
-        res.json('Haciendo api en/alumnos')
-    } catch (error) {
-        next(error)
-    }
-
-}
-const putAlumnos = (req, res, next) => {
-    try {
-        res.json('Haciendo api en/alumnos')
-    } catch (error) {
-        next(error)
-    }
-
-}
-const patchAlumnos = (req, res, next) => {
-    try {
-        res.json('Haciendo api en/alumnos')
-
-    } catch (error) {
-        next(error)
-    }
-}
+ const getAlumnos = (req, res, next) => {
+    res.json('Haciendon get en /alumnos')
+ }
+ const postAlumnos = (req, res, next) => {
+   res.json('Haciendon post en /alumnos')
+ }
+ const putAlumnos = (req, res, next) => {
+   res.json('Haciendon put en /alumnos')
+ }
+ const patchAlumnos = (req, res, next) => {
+   res.json('Haciendon patch en /alumnos')
+   
+ }
 const deleteAlumnos = (req, res, next) => {
-    try {
-        res.json ('Haciendo api en/alumnos')
-    } catch (error) {
-        next(error)
-    }
+   res.json('Haciendon delete en /alumnos')
+
 }
-module.exports ={
-    getAlumnos,
-    postAlumnos,
-    putAlumnos,
-    patchAlumnos,
-    patchAlumnos,
-    deleteAlumnos
-}
+ module.exports ={
+   getAlumnos,
+   postAlumnos,
+   putAlumnos, 
+   patchAlumnos,
+   deleteAlumnos
+ }
