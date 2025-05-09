@@ -53,7 +53,8 @@ const getAlumnosByNombreAndAprobado = (req, res, next) => {
 //METODO POST
 const postAlumnos = (req, res, next ) => {
     try {
-        res.status(201).json({message: `Buscando alumnos `})
+        const {nombre, edad, curso} = req.body
+        res.status(201).json({message: ` Añadiendo ${nombre} con edad ${edad} y que estudia ${curso}`})
     } catch (error) {
         next(Error)
     }
@@ -61,7 +62,7 @@ const postAlumnos = (req, res, next ) => {
 //Buscar por id
 const postAlumnosById = (req, res, next) => {
     try {
-        const {_id} = req.params
+        const {nombre, edad, curso} = req.body
         res.status(200).json({message: `Buscando alumnos by ${_id}Id`, data: []})
     } catch (error) {
         next(Error)
@@ -103,7 +104,8 @@ const postAlumnosByNombreAndAprobado = (req, res, next) => {
 //METODO POST
 const putAlumnos = (req, res, next) => {
     try {
-        res.json(`Buscando alumnos `)
+        const {_id, ...datos} = req.body
+        res.json(datos)
     } catch (error) {
         next(Error)
     }
@@ -152,7 +154,8 @@ const putAlumnosByNombreAndAprobado = (req, res, next) => {
 //METODO PATCH
 const patchAlumnos = (req, res, next) => {
     try {
-        res.json('Bucando alumnos')
+        const {_id, ...datos} = req.body
+        res.json(datos)
     } catch (error) {
         next(Error)
     }
