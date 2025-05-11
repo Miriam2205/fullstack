@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {getAlumnos, postAlumnos, patchAlumnos, deleteAlumnos, putAlumnos, getAlumnosById, getAlumnosNombre, getAlumnosAprobado, getAlumnosByNombreAndAprobado } = require('./controller')
+const {getAlumnos, postAlumnos, patchAlumnos, deleteAlumnos, putAlumnos, getAlumnosById, getAlumnosNombre, getAlumnosAprobado, getAlumnosByNombreAndAprobado, postAlumnosById, putAlumnosById, patchAlumnosById } = require('./controller')
 const { middleware404, middleware500} = require('./middlewares')
 
 
@@ -22,11 +22,14 @@ router.route(`/alumnos/nombre/:nombre`)
 router.route('/alumnos/aprobado/:aprobado')
     .get(getAlumnosAprobado)
 
-router.route(`/alumnos/multiples/:nombre/:`)
+router.route(`/alumnos/multiples/:nombre/:aprobado`)
     .get(getAlumnosByNombreAndAprobado)
 
 router.route(`/alumnos/:_id`)
     .delete(deleteAlumnos)
+    .delete(postAlumnosById)
+    .delete(putAlumnosById)
+    .delete(patchAlumnosById)
 
 
 
