@@ -21,7 +21,7 @@
         .get(getAlumnosByNombreAndAprobado)
 
     router.route(`/alumnos/:_id`)
-    .delete(deleteAlumnos)
+        .delete(deleteAlumnos)
 
 
     router.all('/*splat', middleware404)
