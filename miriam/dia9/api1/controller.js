@@ -1,60 +1,82 @@
-getAlumnos = (req, res, next)=> {
+
+const {Alumno} = require ('./models')
+
+
+
+const getAlumnos = async (req, res, next)=> {
     try {
-        res.status(200).json(`Haciendo get en /alumnos`)
+        const buscar = await Alumno.find()
+        res.status(200).json({status : 200, message: `Buscando a todos los alumnos`, data: buscar})
     } catch (error) {
         next(error)
     }
 }
-getAlumnosById = (req, res, next)=> {
+const getAlumnosById = async (req, res, next)=> {
     try {
-        const {_id}= req.params
-        res.status(200).json({message: `Buscando mediante _id ${_id}`, data: []})
+        const {_id} = req.params
+        const buscar = await Alumno.findById(_id)
+        res.status(200).json({message: `Buscando mediante _id ${_id}`, data: buscar})
     } catch (error) {
         next(error)
     }
 }
-getAlumnosByNombre = (req, res, next)=> {
+const getAlumnosByNombre = async (req, res, next)=> {
     try {
         const {nombre}= req.params
-        res.status(200).json({message: `Buscando nombre que ${nombre}`, data: []})
+        const buscar = await Alumno.find({nombre: nombre})
+        res.status(200).json({message: `Buscando nombre que ${nombre}`, data: buscar})
     } catch (error) {
         next(error)
     }
 }
-getAlumnosByAprobado = (req, res, next)=> {
+const getAlumnosByAprobado = async (req, res, next)=> {
     try {
         const {aprobado} = req.params
-        res.status(200).json({message: `Buscando aprobados ${aprobado}`, data: []})
+        const buscar = await Alumno.find({aprobado: Boolean (aprobado)})
+        res.status(200).json({message: `Buscando aprobados ${aprobado}`, data: buscar})
     } catch (error) {
         
     }
 }
-getAlumnosByNombreAndAprobado = (req, res, next)=>{
+const getAlumnosByNombreAndAprobado = async (req, res, next)=>{
     try {
         const {nombre, aprobado} = req.params
-        res.status(200).json({message: `Buscando nombre ${nombre } y aprobado${aprobado}`, data: []})
+        const buscar = await Alumno.find({nombre: nombre, aprobado: Boolean(aprobado)})
+        res.status(200).json({message: `Buscando nombre ${nombre } y aprobado${aprobado}`, data: buscar})
     } catch (error) {
         next(error)
     }
 }
 
-postAlumnos = (req, res, next)=> {
+const postAlumnos = async (req, res, next)=> {
     try {
-        const {nombre, edad, curso} = req.body
-       res.status(201).json({message: `Buscando nombre ${nombre} con edad ${edad } y que estudia ${curso}`, data: []}) 
+        const {nombre, edad, curso } = req.body
+        const nuevo = new Alumno ({
+            nombre: nombre,
+            edad: edad,
+            curso: curso,
+            
+        })
+        await nuevo.save()
+        const buscar = await Alumno.find()//Volvemos a buscar todos una vez que hemos añadido uno nuevo
+
+       res.status(201).json({message: `He añadido un nuevo alumno`, data: buscar}) 
     } catch (error) {
         next(error)
     }
 }
-putAlumnos = (req, res, next)=>{
+const putAlumnos = async (req, res, next)=>{
     try {
         const {_id, ...datos}= req.body
-        res.json(datos)
+        const actualizar = await Alumno.findByIdAndUpdate(_id, datos)
+        const buscar = await Alumno.find()
+
+        res.status(200).json({message: `Actualizando al alumnos con el id ${_id}`, data: buscar})
     } catch (error) {
         next(error)
     }
 }
-patchAumnos=(req, res,next)=>{
+const patchAumnos=(req, res,next)=>{
     try {
         const {_id, ...datos} = req.body
         res.json(datos)
@@ -62,10 +84,13 @@ patchAumnos=(req, res,next)=>{
         next(error)
     }
 }
-deleteAlumnos = (req, res,next)=> {
+const deleteAlumnos = async (req, res,next)=> {
     try {
         const {_id}= req.params
-        res.json(`Haciendo delete en /alumnos con el id ${_id}`)
+        const eliminar = await Alumno.findByIdAndDelete(_id)
+        const buscar = await Alumno.find()
+
+        res.status(200).json({message: `Eliminando almalumnos con el id ${_id}}`, data: buscar })
     } catch (error) {
         next(error)
     }
