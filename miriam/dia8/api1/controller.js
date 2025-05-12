@@ -1,11 +1,11 @@
-getAlumnos = (req, res, next)=> {
+const getAlumnos = (req, res, next)=> {
     try {
         res.status(200).json(`Haciendo get en /alumnos`)
     } catch (error) {
         next(error)
     }
 }
-getAlumnosById = (req, res, next)=> {
+const getAlumnosById = (req, res, next)=> {
     try {
         const {_id}= req.params
         res.status(200).json({message: `Buscando mediante _id ${_id}`, data: []})
@@ -13,7 +13,7 @@ getAlumnosById = (req, res, next)=> {
         next(error)
     }
 }
-getAlumnosByNombre = (req, res, next)=> {
+const getAlumnosByNombre = (req, res, next)=> {
     try {
         const {nombre}= req.params
         res.status(200).json({message: `Buscando nombre que ${nombre}`, data: []})
@@ -21,7 +21,7 @@ getAlumnosByNombre = (req, res, next)=> {
         next(error)
     }
 }
-getAlumnosByAprobado = (req, res, next)=> {
+const getAlumnosByAprobado = (req, res, next)=> {
     try {
         const {aprobado} = req.params
         res.status(200).json({message: `Buscando aprobados ${aprobado}`, data: []})
@@ -29,7 +29,7 @@ getAlumnosByAprobado = (req, res, next)=> {
         
     }
 }
-getAlumnosByNombreAndAprobado = (req, res, next)=>{
+const getAlumnosByNombreAndAprobado = (req, res, next)=>{
     try {
         const {nombre, aprobado} = req.params
         res.status(200).json({message: `Buscando nombre ${nombre } y aprobado${aprobado}`, data: []})
@@ -38,7 +38,7 @@ getAlumnosByNombreAndAprobado = (req, res, next)=>{
     }
 }
 
-postAlumnos = (req, res, next)=> {
+const postAlumnos = (req, res, next)=> {
     try {
         const {nombre, edad, curso} = req.body
        res.status(201).json({message: `Buscando nombre ${nombre} con edad ${edad } y que estudia ${curso}`, data: []}) 
@@ -46,7 +46,7 @@ postAlumnos = (req, res, next)=> {
         next(error)
     }
 }
-putAlumnos = (req, res, next)=>{
+const putAlumnos = (req, res, next)=>{
     try {
         const {_id, ...datos}= req.body
         res.json(datos)
@@ -54,7 +54,7 @@ putAlumnos = (req, res, next)=>{
         next(error)
     }
 }
-patchAumnos=(req, res,next)=>{
+const patchAumnos=(req, res,next)=>{
     try {
         const {_id, ...datos} = req.body
         res.json(datos)
@@ -62,7 +62,7 @@ patchAumnos=(req, res,next)=>{
         next(error)
     }
 }
-deleteAlumnos = (req, res,next)=> {
+const deleteAlumnos = (req, res,next)=> {
     try {
         const {_id}= req.params
         res.json(`Haciendo delete en /alumnos con el id ${_id}`)
