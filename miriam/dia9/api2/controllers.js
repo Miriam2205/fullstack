@@ -43,8 +43,9 @@ const postPersonaje = async(req, res, next)=> {
             nombre: nombre,
             casa: casa,
             edad: edad,
-            vivo: true
+            vivo: vivo
         })
+        await nuevo.save()
         const buscar = await Personaje.find()
         res.status(200).json({status: 200, message: `Publicando nuevo personaje `, data: buscar})
     } catch (error) {
